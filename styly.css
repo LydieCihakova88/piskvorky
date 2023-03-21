@@ -1,3 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(#615dad, #ffc8da);
+  background-attachment: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 h1 {
   font-family: 'Lobster', cursive;
+  color: white;
+  text-align: center;
+}
+
+img {
+  width: 360px;
+  height: 380px;
 }
