@@ -100,3 +100,118 @@ a {
   background-color: #0090e9;
   cursor: pointer;
 }
+
+/* 2.část úkolu */
+
+body {
+  max-width: 80vmin;
+}
+
+.playContain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-size: 3.5rem;
+  font-weight: 100;
+  margin-bottom: 5%;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  justify-content: space-between;
+}
+
+h2 {
+  color: white;
+  font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+
+}
+
+.leftSide {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.circle {
+  height: 23px;
+  width: 23px;
+  border-radius: 60%;
+  border: 3 solid white;
+  display: inline-block;
+  align-self: center;
+  margin-left: 5 px;
+}
+
+.rightSide {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.playField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home {
+  border: 6px solid, #1fcca4;
+  background-color: #1fcca4;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  padding: 6px;
+  align-self: center;
+}
+
+a.domu:hover {
+  background-color: #1cbb96;
+}
+
+
+.restart {
+  border: 6px solid, #0197f6;
+  background-color: #0197f6;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  padding: 6px;
+  margin: 8px;
+  align-self: center;
+
+}
+
+a.restart:hover {
+  background-color: #0090e9;
+}
+
+.game-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  height: 8vmin;
+  width: 8vmin;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+button:hover {
+  background-color: #d7cdf0;
+}
+
+button:focus {
+  background-color: #d7cdf0;
+
+}
