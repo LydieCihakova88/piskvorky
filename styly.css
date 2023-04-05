@@ -145,7 +145,7 @@ h2 {
 .leftSide {
   display: flex;
   justify-content: flex-start;
-  f
+
 }
 
 .circle {
@@ -204,7 +204,7 @@ a.restart:hover {
 
 
 
-.playField button {
+.playField {
   width: 4vw;
   height: 4vw;
   border: 0.1rem solid black;
