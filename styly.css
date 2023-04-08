@@ -112,12 +112,13 @@ a {
   margin-right: 30%;
 }
 
-header>h1 {
-  font-size: 3.5rem;
-  align-self: center;
-  font-weight: 100;
-  margin-bottom: 5%;
-  color: white;
+.title {
+  color: #ffffff;
+  font-family: 'Lobster';
+  font-weight: lighter;
+  font-size: 48px;
+  text-align: center;
+  margin: 5px 0;
 }
 
 .play-container {
@@ -135,10 +136,15 @@ header>h1 {
 
 .container1 {
   display: flex;
-
-
 }
 
+.container_title {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
 .circle {
   height: 1.8rem;
@@ -159,9 +165,9 @@ header>h1 {
 
 .home-btn {
   background-color: #1fcca4;
-  display: flex;
-
-
+  padding: 10px 8px 12px 8px;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .home-btn:hover {
@@ -170,8 +176,10 @@ header>h1 {
 
 .restart-btn {
   background-color: #0197f6;
-  display: flex;
+  padding: 10px 8px 12px 8px;
+  border-radius: 5px;
 }
+
 
 .restart-btn:hover {
   background-color: #0090e9;
@@ -184,11 +192,16 @@ header>h1 {
   align-items: center;
 }
 
-.field-btn {
+.game_button {
+  flex: 0 0 10%;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .field button {
@@ -200,12 +213,12 @@ header>h1 {
   padding-bottom: 0.5rem;
 }
 
-.field button :hover {
+.field button:hover {
   background-color: white;
   opacity: 70%;
 }
 
-.field button :focus {
+.field button:focus {
   background-color: white;
   opacity: 70%;
 }
