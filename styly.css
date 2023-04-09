@@ -146,8 +146,8 @@ a {
 }
 
 .circle {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   border: 2.5px solid white;
   border-radius: 50%;
   background: none;
@@ -163,7 +163,7 @@ a {
 .home-btn {
   background-color: #1fcca4;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 3px;
   margin-right: 10px;
 
   justify-content: flex-start;
@@ -176,8 +176,8 @@ a {
 .restart-btn {
   background-color: #0197f6;
   padding: 10px;
-  border-radius: 4px;
-  margin-right: 40px;
+  border-radius: 3px;
+  margin-right: 10px;
   align-items: center;
 
 
@@ -202,10 +202,10 @@ a {
 }
 
 .game button {
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
   border: 0.1rem solid black;
-  opacity: 50%;
+  opacity: 40%;
   cursor: pointer;
   padding-bottom: 0.5rem;
 }
