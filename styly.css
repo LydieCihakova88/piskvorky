@@ -104,46 +104,29 @@ a {
 
 /* 2.část úkolu */
 
-.header {
+.play-menu {
+  display: flex;
   max-width: 80vmin;
-  display: flex;
   flex-direction: column;
-  margin-left: 30%;
-  margin-right: 30%;
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+  color: white;
+
 }
 
-.title {
-  color: #ffffff;
-  font-family: 'Lobster';
-  font-weight: lighter;
-  font-size: 48px;
-  text-align: center;
-  margin: 5px 0;
-}
-
-.play-container {
+.items {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-.play-container p {
-  font-size: 1.5rem;
-  text-transform: uppercase;
+.player {
   font-weight: bold;
-  color: white;
-}
-
-.container1 {
+  font-size: 24px;
   display: flex;
-}
-
-.container_title {
+  margin: 20px;
   color: #ffffff;
-  font-size: 20px;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .circle {
@@ -154,20 +137,22 @@ a {
   display: inline-block;
   align-self: center;
   margin-left: 0.5rem;
+  background: none;
+
 }
 
-
-.header-btns>a {
-  margin-left: 0.5rem;
-  padding: 0.4rem;
-  border-radius: 5%;
+.header-btns {
+  display: flex;
 }
+
 
 .home-btn {
   background-color: #1fcca4;
   padding: 10px 8px 12px 8px;
   border-radius: 5px;
   margin-right: 10px;
+
+  justify-content: flex-start;
 }
 
 .home-btn:hover {
@@ -178,33 +163,31 @@ a {
   background-color: #0197f6;
   padding: 10px 8px 12px 8px;
   border-radius: 5px;
-}
+  margin-right: 10px;
 
+  justify-content: flex-end;
+
+}
 
 .restart-btn:hover {
   background-color: #0090e9;
 }
 
-.field {
+.game {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.game_button {
-  flex: 0 0 10%;
-  border: 1px solid black;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  padding: 0;
+.game-btn {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  position: relative;
+  align-items: center;
 }
 
-.field button {
+.game button {
   width: 4vw;
   height: 4vw;
   border: 0.1rem solid black;
@@ -213,12 +196,12 @@ a {
   padding-bottom: 0.5rem;
 }
 
-.field button:hover {
+.game button:hover {
   background-color: white;
   opacity: 70%;
 }
 
-.field button:focus {
+.game button:focus {
   background-color: white;
   opacity: 70%;
 }
