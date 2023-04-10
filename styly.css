@@ -134,7 +134,9 @@ a {
 
   justify-content: space-between;
   display: flex;
+  margin-right: 10rem;
 }
+
 
 .player {
   font-weight: bold;
@@ -143,7 +145,9 @@ a {
   margin: 20px;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+  padding-left: 6rem;
 }
+
 
 .circle {
   width: 22px;
@@ -152,11 +156,34 @@ a {
   border-radius: 50%;
   background: none;
   margin-left: 10px;
+}
 
+
+.playing {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  display: flex;
+  margin: 0.5rem;
+  padding-left: 5rem;
+}
+
+
+.opening {
+  display: flex;
+  justify-content: right;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+
+.whoplays__player {
+  font-weight: bold;
 }
 
 .header-btns {
   display: flex;
+
 }
 
 
@@ -165,8 +192,8 @@ a {
   padding: 10px;
   border-radius: 3px;
   margin-right: 10px;
+  justify-items: center;
 
-  justify-content: flex-start;
 }
 
 .home-btn:hover {
@@ -218,4 +245,17 @@ a {
 .game button:focus {
   background-color: white;
   opacity: 70%;
+}
+
+
+.board__field--cross {
+  background-image: url("crossSvg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.board__field--circle {
+  background-image: url("circleSvg ");
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
