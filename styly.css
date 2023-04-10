@@ -107,45 +107,33 @@ a {
 /* 2.část úkolu */
 
 .play-menu {
-  display: flex;
   max-width: 80vmin;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  top: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-size: 3.5rem;
+  align-self: center;
+  font-weight: 100;
+  margin-bottom: 5%;
   color: white;
-
 }
 
 .play-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .play-container p {
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
-
 }
 
 .items {
-
-  justify-content: space-between;
   display: flex;
-  margin-right: 10rem;
-}
 
-
-.player {
-  font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  margin: 20px;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-left: 6rem;
 }
 
 
@@ -159,33 +147,10 @@ a {
 }
 
 
-.playing {
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
-  display: flex;
-  margin: 0.5rem;
-  padding-left: 5rem;
-}
-
-
-.opening {
-  display: flex;
-  justify-content: right;
-  margin-left: 35%;
-  margin-right: 35%;
-}
-
-
-.whoplays__player {
-  font-weight: bold;
-}
-
 .header-btns {
   display: flex;
 
 }
-
 
 .home-btn {
   background-color: #1fcca4;
@@ -245,17 +210,4 @@ a {
 .game button:focus {
   background-color: white;
   opacity: 70%;
-}
-
-
-.board__field--cross {
-  background-image: url("crossSvg");
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-
-.board__field--circle {
-  background-image: url("circleSvg ");
-  background-position: 50%;
-  background-repeat: no-repeat;
 }
