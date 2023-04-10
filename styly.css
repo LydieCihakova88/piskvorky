@@ -107,57 +107,77 @@ a {
 /* 2.část úkolu */
 
 .play-menu {
+
   max-width: 80vmin;
-  display: flex;
-  flex-direction: column;
-  margin-left: 30%;
-  margin-right: 30%;
-  font-size: 3.5rem;
-  align-self: center;
-  font-weight: 100;
-  margin-bottom: 5%;
-  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  justify-content: center;
+
 }
+
+h1 {
+  font-family: Lobster, Arial, Helvetica;
+  font-size: 3.5rem;
+  text-align: center;
+  color: white;
+  display: flex;
+}
+
 
 .play-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.play-container p {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
+  justify-content: start;
+  color: white;
+  font-size: 20px;
 }
 
 .items {
   display: flex;
 
+  .playing {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    margin: 0.5rem;
+    padding-left: 5rem;
+  }
+
+
+  .opening {
+    display: flex;
+    justify-content: right;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+
 }
 
-
+/*  
 .circle {
   width: 22px;
   height: 22px;
   border: 2.5px solid white;
-  border-radius: 50%;
-  background: none;
-  margin-left: 10px;
-}
+  border-radius: 60%;
 
+}
+*/
 
 .header-btns {
   display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+  margin-block-end: auto;
 
 }
 
 .home-btn {
   background-color: #1fcca4;
-  padding: 10px;
+  padding: 5px;
   border-radius: 3px;
-  margin-right: 10px;
-  justify-items: center;
+  margin-right: 5px;
+  align-items: center;
 
 }
 
@@ -167,9 +187,9 @@ a {
 
 .restart-btn {
   background-color: #0197f6;
-  padding: 10px;
+  padding: 5px;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-right: 5px;
   align-items: center;
 
 
@@ -210,4 +230,16 @@ a {
 .game button:focus {
   background-color: white;
   opacity: 70%;
+}
+
+.board__field--cross {
+  background-image: url("cross.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.board__field--circle {
+  background-image: url("circle.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
 }

@@ -10,16 +10,16 @@ const circleSvg = `<span class="whoplays__player">HRAJE: </span>
   <circle class="circle" cx="18" cy="18" r="10" stroke="white" stroke-width="2.5" fill="transparent"/>
 </svg>`;
 
-const btn1 = document.querySelector('button:nth-child(1)');
-const btn2 = document.querySelector('button:nth-child(2)');
-const btn3 = document.querySelector('button:nth-child(3)');
-const btn4 = document.querySelector('button:nth-child(4)');
-const btn5 = document.querySelector('button:nth-child(5)');
-const btn6 = document.querySelector('button:nth-child(6)');
-const btn7 = document.querySelector('button:nth-child(7)');
-const btn8 = document.querySelector('button:nth-child(8)');
-const btn9 = document.querySelector('button:nth-child(9)');
-const btn10 = document.querySelector('button:nth-child(10)');
+const touch1 = document.querySelector('button:nth-child(1)');
+const touch2 = document.querySelector('button:nth-child(2)');
+const touch3 = document.querySelector('button:nth-child(3)');
+const touch4 = document.querySelector('button:nth-child(4)');
+const touch5 = document.querySelector('button:nth-child(5)');
+const touch6 = document.querySelector('button:nth-child(6)');
+const touch7 = document.querySelector('button:nth-child(7)');
+const touch8 = document.querySelector('button:nth-child(8)');
+const touch9 = document.querySelector('button:nth-child(9)');
+const touch10 = document.querySelector('button:nth-child(10)');
 
 const changingPlayer = document.querySelector('img');
 
@@ -44,16 +44,16 @@ const playing = (event) => {
   }
 };
 
-btn1.addEventListener('click', playing);
-btn2.addEventListener('click', playing);
-btn3.addEventListener('click', playing);
-btn4.addEventListener('click', playing);
-btn5.addEventListener('click', playing);
-btn6.addEventListener('click', playing);
-btn7.addEventListener('click', playing);
-btn8.addEventListener('click', playing);
-btn9.addEventListener('click', playing);
-btn10.addEventListener('click', playing);
+touch1.addEventListener('click', playing);
+touch2.addEventListener('click', playing);
+touch3.addEventListener('click', playing);
+touch4.addEventListener('click', playing);
+touch5.addEventListener('click', playing);
+touch6.addEventListener('click', playing);
+touch7.addEventListener('click', playing);
+touch8.addEventListener('click', playing);
+touch9.addEventListener('click', playing);
+touch10.addEventListener('click', playing);
 
 const again = document.querySelector('.restart-btn');
 
@@ -62,3 +62,5 @@ again.addEventListener('click', (event) => {
     event.preventDefault();
   }
 });
+
+navigationFieldBlue.addEventListener('click', verification);
