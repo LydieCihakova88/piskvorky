@@ -21,10 +21,10 @@ const touch8 = document.querySelector('button:nth-child(8)');
 const touch9 = document.querySelector('button:nth-child(9)');
 const touch10 = document.querySelector('button:nth-child(10)');
 
-const changingPlayer = document.querySelector('img');
+const picturePlayer = document.querySelector('img');
 
 if (currentPlayer === 'circle') {
-  changingPlayer.src = 'circleSvg';
+  picturePlayer.src = 'circle.svg';
 }
 
 const playing = (event) => {
@@ -34,12 +34,12 @@ const playing = (event) => {
     turn.value = 'board__field--circle';
     currentPlayer = 'cross';
     event.target.disabled = true;
-    changingPlayer.src = 'crossSvg';
+    picturePlayer.src = 'cross.svg';
   } else {
     currentPlayer === 'cross';
     turn.value = 'board__field--cross';
     currentPlayer = 'circle';
-    changingPlayer.src = 'circleSvg';
+    picturePlayer.src = 'circle.svg';
     event.target.disabled = true;
   }
 };
@@ -62,5 +62,3 @@ again.addEventListener('click', (event) => {
     event.preventDefault();
   }
 });
-
-navigationFieldBlue.addEventListener('click', verification);

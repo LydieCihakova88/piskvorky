@@ -243,3 +243,15 @@ h1 {
   background-position: 50%;
   background-repeat: no-repeat;
 }
+
+.dot {
+  height: 3vmin;
+  aspect-ratio: 1/1;
+  display: inline-block;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  fill: transparent;
+  margin: 0 2px;
+}
