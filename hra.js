@@ -1,64 +1,60 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 let currentPlayer = 'circle';
 
-const crossSvg = `<span class="whoplays__player">HRAJE: </span>
-<svg class="cross" width="20" height="20" viewBox="0 0 20 20" overflow="visible" stroke="white" stroke-width="2.5">
-  <line x2="20" y2="20" />
-  <line x1="20" y2="20" />
-</svg>`;
-const circleSvg = `<span class="whoplays__player">HRAJE: </span>
-<svg class="circle" width="36" height="36">
-  <circle class="circle" cx="18" cy="18" r="10" stroke="white" stroke-width="2.5" fill="transparent"/>
-</svg>`;
-
-const touch1 = document.querySelector('button:nth-child(1)');
-const touch2 = document.querySelector('button:nth-child(2)');
-const touch3 = document.querySelector('button:nth-child(3)');
-const touch4 = document.querySelector('button:nth-child(4)');
-const touch5 = document.querySelector('button:nth-child(5)');
-const touch6 = document.querySelector('button:nth-child(6)');
-const touch7 = document.querySelector('button:nth-child(7)');
-const touch8 = document.querySelector('button:nth-child(8)');
-const touch9 = document.querySelector('button:nth-child(9)');
-const touch10 = document.querySelector('button:nth-child(10)');
+const vsechnaHerniPolicka = document.querySelectorAll('.game button');
 
 const picturePlayer = document.querySelector('img');
 
-if (currentPlayer === 'circle') {
-  picturePlayer.src = 'circle.svg';
-}
-
-const playing = (event) => {
-  const turn = event.target.classList;
-
+const zpracujKlikNaPolicko = (event) => {
   if (currentPlayer === 'circle') {
-    turn.value = 'board__field--circle';
+    event.target.classList.add('board__field--circle');
     currentPlayer = 'cross';
-    event.target.disabled = true;
     picturePlayer.src = 'cross.svg';
   } else {
-    currentPlayer === 'cross';
-    turn.value = 'board__field--cross';
+    event.target.classList.add('board__field--cross');
     currentPlayer = 'circle';
     picturePlayer.src = 'circle.svg';
-    event.target.disabled = true;
+  }
+
+  const herniPole = vytvorHerniPole();
+
+  zjistiViteze(herniPole);
+};
+
+vsechnaHerniPolicka.forEach((policko) => {
+  policko.addEventListener('click', zpracujKlikNaPolicko);
+});
+
+const zjistiViteze = (herniPole) => {
+  const winner = findWinner(herniPole);
+  if (winner === 'x') {
+    setTimeout(() => {
+      alert('Vyhrál křížek!');
+      location.reload();
+    }, 200);
+  } else if (winner === 'o') {
+    setTimeout(() => {
+      alert('Vyhrálo kolečko!');
+      location.reload();
+    }, 200);
+  } else if (winner === 'tie') {
+    setTimeout(() => {
+      alert('Hra skončila nerozhodně.');
+      location.reload();
+    }, 200);
   }
 };
 
-touch1.addEventListener('click', playing);
-touch2.addEventListener('click', playing);
-touch3.addEventListener('click', playing);
-touch4.addEventListener('click', playing);
-touch5.addEventListener('click', playing);
-touch6.addEventListener('click', playing);
-touch7.addEventListener('click', playing);
-touch8.addEventListener('click', playing);
-touch9.addEventListener('click', playing);
-touch10.addEventListener('click', playing);
+const vytvorHerniPole = () => {
+  const polePolicek = Array.from(vsechnaHerniPolicka);
+  return polePolicek.map((button) => {
+    if (button.classList.contains('board__field--circle')) {
+      return 'o';
+    }
+    if (button.classList.contains('board__field--cross')) {
+      return 'x';
+    }
 
-const again = document.querySelector('.restart-btn');
-
-again.addEventListener('click', (event) => {
-  if (!confirm('Opravdu chceš začít znovu ?')) {
-    event.preventDefault();
-  }
-});
+    return '_';
+  });
+};
