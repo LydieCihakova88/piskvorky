@@ -10,6 +10,7 @@ const zpracujKlikNaPolicko = (event) => {
     event.target.classList.add('board__field--circle');
     currentPlayer = 'cross';
     picturePlayer.src = 'cross.svg';
+    answer();
   } else {
     event.target.classList.add('board__field--cross');
     currentPlayer = 'circle';
@@ -58,3 +59,66 @@ const vytvorHerniPole = () => {
     return '_';
   });
 };
+
+//přidání fetch
+const answer = () => {
+  btns.forEach((button) => {
+    button.disabled = true;
+  });
+
+  const vytvorHerniPole = () => {
+    const polePolicek = Array.from(vsechnaHerniPolicka);
+    return polePolicek.map((button) => {
+      if (button.classList.contains('board__field--circle')) {
+        return 'o';
+      }
+      if (button.classList.contains('board__field--cross')) {
+        return 'x';
+      }
+
+      return '_';
+    });
+  };
+  fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      board: vytvorHerniPole,
+      player: 'x',
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const { x, y } = data.position;
+      const index = x + y * 10;
+      btns.forEach((button) => {
+        if (
+          button.classList.contains('board__field--cross') ||
+          button.classList.contains('board__field--circle')
+        ) {
+          button.disabled = true;
+        } else {
+          button.disabled = false;
+        }
+      });
+
+      btns[index].click();
+    });
+};
+
+//Window refresh
+const restart = (event) => {
+  if (window.confirm('Opravdu chceš začít znovu?')) {
+    location.reload();
+  } else {
+    event.preventDefault();
+  }
+};
+document.querySelector('.restart-btn').addEventListener('click', restart);
+
+//Adding event listener to all buttons
+document.querySelectorAll('.playBtn').forEach((button) => {
+  button.addEventListener('click', selectButton);
+});
