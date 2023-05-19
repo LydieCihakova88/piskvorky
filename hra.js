@@ -60,7 +60,7 @@ const vytvorHerniPole = () => {
   });
 };
 
-//přidání fetch
+//fetch
 const answer = () => {
   btns.forEach((button) => {
     button.disabled = true;
@@ -108,7 +108,7 @@ const answer = () => {
     });
 };
 
-//Window refresh
+//refresh
 const restart = (event) => {
   if (window.confirm('Opravdu chceš začít znovu?')) {
     location.reload();
