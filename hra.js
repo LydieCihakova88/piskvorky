@@ -1,91 +1,82 @@
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
+
 let currentPlayer = 'circle';
 
-const vsechnaHerniPolicka = document.querySelectorAll('.game button');
+const changingPlayer = document.querySelector('img');
+if (currentPlayer === 'circle') {
+  changingPlayer.src = 'circle.svg';
+}
 
-const picturePlayer = document.querySelector('img');
+const btns = document.querySelectorAll('button');
 
-const zpracujKlikNaPolicko = (event) => {
+//nastavení hráče
+const playing = (event) => {
+  const turn = event.target.classList;
+
   if (currentPlayer === 'circle') {
-    event.target.classList.add('board__field--circle');
+    turn.value = 'board__field--circle';
     currentPlayer = 'cross';
-    picturePlayer.src = 'cross.svg';
+    event.target.disabled = true;
+    changingPlayer.src = 'cross.svg';
     answer();
   } else {
-    event.target.classList.add('board__field--cross');
     currentPlayer = 'circle';
-    picturePlayer.src = 'circle.svg';
+    turn.value = 'board__field--cross';
+    changingPlayer.src = 'circle.svg';
+    event.target.disabled = true;
   }
 
-  const herniPole = vytvorHerniPole();
-
-  zjistiViteze(herniPole);
-};
-
-vsechnaHerniPolicka.forEach((policko) => {
-  policko.addEventListener('click', zpracujKlikNaPolicko);
-});
-
-const zjistiViteze = (herniPole) => {
-  const winner = findWinner(herniPole);
-  if (winner === 'x') {
-    setTimeout(() => {
-      alert('Vyhrál křížek!');
-      location.reload();
-    }, 200);
-  } else if (winner === 'o') {
-    setTimeout(() => {
-      alert('Vyhrálo kolečko!');
-      location.reload();
-    }, 200);
-  } else if (winner === 'tie') {
-    setTimeout(() => {
-      alert('Hra skončila nerozhodně.');
-      location.reload();
-    }, 200);
-  }
-};
-
-const vytvorHerniPole = () => {
-  const polePolicek = Array.from(vsechnaHerniPolicka);
-  return polePolicek.map((button) => {
+  const playingField = Array.from(btns);
+  const findIt = playingField.map((button) => {
     if (button.classList.contains('board__field--circle')) {
       return 'o';
-    }
-    if (button.classList.contains('board__field--cross')) {
+    } else if (button.classList.contains('board__field--cross')) {
       return 'x';
+    } else {
+      return '_';
     }
-
-    return '_';
   });
-};
 
-//fetch
+  const winner = findWinner(findIt);
+  console.log(winner);
+  if (winner === 'o' || winner === 'x') {
+    setTimeout(() => {
+      alert(`Vyhrál hráč se symbolem ${winner} !`);
+      location.reload();
+    }, 150);
+  } else if (winner === 'tie') {
+    setTimeout(() => {
+      alert('Tahle hra je nerozhodně!');
+      location.reload();
+    }, 150);
+  }
+};
+//vybrání všech políček
+
+//přidání fetch
 const answer = () => {
   btns.forEach((button) => {
     button.disabled = true;
   });
 
-  const vytvorHerniPole = () => {
-    const polePolicek = Array.from(vsechnaHerniPolicka);
-    return polePolicek.map((button) => {
-      if (button.classList.contains('board__field--circle')) {
-        return 'o';
-      }
-      if (button.classList.contains('board__field--cross')) {
-        return 'x';
-      }
-
+  const playingField = Array.from(btns);
+  const findIt = playingField.map((button) => {
+    if (button.classList.contains('board__field--circle')) {
+      return 'o';
+    } else if (button.classList.contains('board__field--cross')) {
+      return 'x';
+    } else {
       return '_';
-    });
-  };
+    }
+  });
+
   fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
     body: JSON.stringify({
-      board: vytvorHerniPole,
+      board: findIt,
       player: 'x',
     }),
   })
@@ -108,17 +99,15 @@ const answer = () => {
     });
 };
 
-//refresh
-const restart = (event) => {
-  if (window.confirm('Opravdu chceš začít znovu?')) {
-    location.reload();
-  } else {
+const field = document.querySelector('.field');
+btns.forEach((button) => {
+  button.addEventListener('click', playing);
+});
+
+//přidání confirm
+const again = document.querySelector('.restartbutton');
+again.addEventListener('click', (event) => {
+  if (!confirm('Opravdu chceš začít znovu ?')) {
     event.preventDefault();
   }
-};
-document.querySelector('.restart-btn').addEventListener('click', restart);
-
-//Adding event listener to all buttons
-document.querySelectorAll('.playBtn').forEach((button) => {
-  button.addEventListener('click', selectButton);
 });
